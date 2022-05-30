@@ -80,16 +80,16 @@ class AppScaffoldState extends ScaffoldState {
     Widget child = Stack(
       children: [
         super.build(context),
-        // if (AppConfig.debugMode || AppConfig.flavor != Flavor.PROD)
-        //   Align(
-        //     alignment: Alignment.bottomLeft,
-        //     child: Banner(
-        //       message: AppConfig.flavor.name.toUpperCase(),
-        //       color: AppConfig.flavor.color,
-        //       textStyle: const TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),
-        //       location: BannerLocation.bottomStart,
-        //     ),
-        //   ),
+        if (AppConfig.debugMode || AppConfig.flavor != Flavor.PROD)
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Banner(
+              message: AppConfig.flavor.name.toUpperCase(),
+              color: AppConfig.flavor.color,
+              textStyle: const TextStyle(color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),
+              location: BannerLocation.bottomStart,
+            ),
+          ),
       ],
     );
 

@@ -25,10 +25,23 @@ class CardWidget extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-                  Center(child: Text(value.toString(),style: const TextStyle(fontSize: 210),)),
+                  Center(
+                      child: Text(
+                    value.toString(),
+                    style: const TextStyle(fontSize: 210),
+                  )),
                   Align(
+                    alignment: Alignment.topLeft,
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      child: Image.asset('assets/images/icon_$value.jpg'),
+                    ),
+                  ),   Align(
                     alignment: Alignment.bottomRight,
-                    child: Image.asset('assets/images/icon_$value.jpg'),
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      child: Image.asset('assets/images/icon_$value.jpg'),
+                    ),
                   ),
                 ],
               ),
