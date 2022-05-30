@@ -42,8 +42,12 @@ jobs:
       - run: flutter pub get
 #      - run: flutter test
       - run: flutter build ios --debug --no-codesign
-
-
+      - name: Upload APP
+        uses: actions/upload-artifact@v1
+        with:
+          name: app
+          path: build/ios/iphoneos/Runner.app
+#          path: /Users/runner/work/ScrumPoker/ScrumPoker/build/ios/iphoneos/Runner.app
 
 #      - run: flutter build appbundle
 #    env:
