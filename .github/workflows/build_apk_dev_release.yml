@@ -3,7 +3,7 @@ name: Build_Apk_Dev_Releases
 on:
   workflow_dispatch:
 #  push:
-exit#    tags:
+#    tags:
 #      - '*'
 
 jobs:
