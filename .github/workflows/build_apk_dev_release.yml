@@ -1,4 +1,4 @@
-name: Build_Apk_Prod_Debug
+name: Build_Apk_Dev_Releases
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   releases:
-    name: build apk prod-debug
+    name: build apk dev-release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,11 +20,11 @@ jobs:
         with:
           flutter-version: '3.0.1'
       - run: flutter pub get
-#      - run: flutter test
-      - run: flutter build apk --debug --flavor flavor_prod --dart-define=flavor="prod"
+      #      - run: flutter test
+      - run: flutter build apk --release --flavor flavor_dev --dart-define=flavor="dev"
 
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
-          name: prod-debug-apk
-          path: build/app/outputs/flutter-apk/app-flavor_prod-debug.apk
+          name: dev-release-apk
+          path: build/app/outputs/flutter-apk/app-flavor_dev-release.apk
