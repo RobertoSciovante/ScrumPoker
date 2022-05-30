@@ -1,10 +1,24 @@
-name: A workflow for my Hello World file
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Dart
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   build:
-    name: Hello world action
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./action-a
-      with:
-        MY_NAME: "Mona"
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.1'
+          channel: 'stable'
+      - run: flutter --version
