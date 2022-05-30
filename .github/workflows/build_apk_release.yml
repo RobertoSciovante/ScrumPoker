@@ -26,8 +26,8 @@ jobs:
           flutter-version: '3.0.1'
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build apk
-      - run: flutter build appbundle
+      - run: flutter build apk --release
+#      - run: flutter build appbundle
 #    env:
 #      JAVA_VERSION: "11.0"
 #      FLUTTER_VERSION: "3.0.1"
