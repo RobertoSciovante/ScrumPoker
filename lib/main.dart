@@ -39,7 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      _counter = _counter % Fibonacci.length;
+      _counter = (_counter+1) % Fibonacci.length;
+      print('_MyHomePageState._incrementCounter - _counter = ' + _counter.toString());
     });
   }
 
@@ -50,25 +51,31 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
            CardWidget(Fibonacci[_counter].toString()),
+          // Text(_counter.toString(),style: TextStyle(fontSize: 48),),
           // Row(children: Fibonacci.map((i) => Text(i.toString())),),
 
-          Row(
-            // direction: Axis.horizontal,
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: Fibonacci.map((i) => buildIcon(context, i)).toList(growable: false),
-          )
+          // Row(
+          //   mainAxisSize: MainAxisSize.max,
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: Fibonacci.map((i) => buildIcon(context, i)).toList(growable: false),
+          // )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
     );
   }
 
-  Widget buildIcon(BuildContext context, int value) {
-    return  Text(value.toString());
-    // return ElevatedButton(
-    //
-    //   onPressed: _incrementCounter,
-    //   child: Text(value.toString()),
-    // );
-  }
+  // Widget buildIcon(BuildContext context, int value) {
+  //   // return
+  //   return FloatingActionButton(
+  //
+  //     onPressed: _incrementCounter,
+  //     // tooltip: 'Increment',
+  //     child: Text(value.toString());
+  //   );
+  // }
 }
