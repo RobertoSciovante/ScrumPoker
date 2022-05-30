@@ -25,6 +25,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+
+def devProperties = new Properties()
+def prodProperties = new Properties()
+
+devProperties.load(new FileInputStream( rootProject.file('app/src/flavor_dev/key.properties')))
+prodProperties.load(new FileInputStream( rootProject.file('app/src/flavor_prod/key.properties')))
+
+
 android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
@@ -45,6 +53,22 @@ android {
         versionName flutterVersionName
     }
 
+
+    signingConfigs {
+        dev {
+            keyAlias devProperties['keyAlias']
+            keyPassword devProperties['keyPassword']
+            storeFile devProperties['storeFile'] ? file(devProperties['storeFile']) : null
+            storePassword devProperties['storePassword']
+        }
+        prod {
+            keyAlias prodProperties['keyAlias']
+            keyPassword prodProperties['keyPassword']
+            storeFile prodProperties['storeFile'] ? file(prodProperties['storeFile']) : null
+            storePassword prodProperties['storePassword']
+        }
+    }
+
     flavorDimensions "default"
 
     productFlavors {
@@ -61,8 +85,9 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            productFlavors.flavor_dev.signingConfig signingConfigs.dev
+            productFlavors.flavor_prod.signingConfig signingConfigs.prod
+
             signingConfig signingConfigs.debug
         }
     }
