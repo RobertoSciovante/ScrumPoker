@@ -87,8 +87,6 @@ android {
         release {
             productFlavors.flavor_dev.signingConfig signingConfigs.dev
             productFlavors.flavor_prod.signingConfig signingConfigs.prod
-
-            signingConfig signingConfigs.debug
         }
     }
 }
