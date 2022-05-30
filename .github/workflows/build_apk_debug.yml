@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: BuildApkReleases
+name: BuildApkDebug
 
 # Controls when the workflow will run
 on:
@@ -8,12 +8,9 @@ on:
 #    tags:
 #      - '*'
 
-  # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   releases:
-    name: release apk
-    # The type of runner that the job will run on
+    name: build apk debug
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,18 +22,14 @@ jobs:
         with:
           flutter-version: '3.0.1'
       - run: flutter pub get
-      - run: flutter test
-      - run: flutter build apk --release
+#      - run: flutter test
+      - run: flutter build apk --debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
           name: apk
-          path: build/app/outputs/flutter-apk/app-release.apk
-
-
-#                build/app/outputs/flutter-apk/app-release.apk
-
+          path: build/app/outputs/flutter-apk/app-debug.apk
 
 #      - run: flutter build appbundle
 #    env:
