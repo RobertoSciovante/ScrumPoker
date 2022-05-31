@@ -1,3 +1,22 @@
+logger.quiet('--- Gradle START ---')
+//
+//def dartEnvironmentVariables = [
+//        dev_env_local: 'locale',
+//];
+//
+//if (project.hasProperty('dart-defines')) {
+//    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
+//            .split(',')
+//            .collectEntries { entry ->
+//                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+//                [(pair.first()): pair.last()]
+//            }
+//}
+//
+//logger.quiet('A {} log message', 'my_quiet')
+//logger.quiet('dev_env_local: |{}|',dartEnvironmentVariables.dev_env_local)
+//logger.quiet('dart_define_sample: |{}|',dartEnvironmentVariables.dart_define_sample)
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -31,7 +50,6 @@ def prodProperties = new Properties()
 
 devProperties.load(new FileInputStream( rootProject.file('app/src/flavor_dev/key.properties')))
 prodProperties.load(new FileInputStream( rootProject.file('app/src/flavor_prod/key.properties')))
-
 
 android {
     compileSdkVersion flutter.compileSdkVersion

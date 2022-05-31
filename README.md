@@ -3,6 +3,7 @@ ScrumPoker
 
 flutter build apk --release --flavor flavor_dev --dart-define=flavor="dev"
 flutter build apk --debug --flavor flavor_prod -t lib/main.dart --dart-define=flavor="prod"
+flutter build apk --debug --flavor flavor_dev -t lib/main.dart --dart-define=flavor="dev" 
 
 build\app\outputs\flutter-apk\app-flavor_dev-release.apk
 
