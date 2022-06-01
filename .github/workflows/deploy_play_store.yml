@@ -1,4 +1,4 @@
-name: Deploy to Play Store V.010
+name: Deploy to Play Store V.011
 
 on:
   workflow_dispatch:
@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 1
+       - run: echo  ${GITHUB_WORKSPACE}
        - name: Publish to Play Store internal test track
          uses: r0adkll/upload-google-play@v1
          with:
