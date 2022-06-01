@@ -19,15 +19,15 @@ jobs:
 #          path: ./android/
 
 #      - uses: actions/checkout@v3
-       - name: Publish to Play Store internal test track
-         uses: r0adkll/upload-google-play@v1
-         with:
-           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
-           # 3
-           packageName: com.startingfinace.scrumpoker
-           releaseFile: app-production-release.aab
-#           releaseFile: /home/runner/work/ScrumPoker/ScrumPoker/artifact/app-production-release.aab
- #           releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
-           track: internal
-           userFraction: 0.50
- #          mappingFile: mapping.txt
+      - name: Publish to Play Store internal test track
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          # 3
+          packageName: com.startingfinace.scrumpoker
+          releaseFile: app-production-release.aab
+#          releaseFile: /home/runner/work/ScrumPoker/ScrumPoker/artifact/app-production-release.aab
+ #          releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
+          track: internal
+          userFraction: 0.50
+ #         mappingFile: mapping.txt
