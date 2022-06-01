@@ -1,4 +1,4 @@
-name: Deploy to Play Store V.014
+name: Deploy to Play Store V.015
 
 on:
   workflow_dispatch:
@@ -10,19 +10,23 @@ jobs:
   deploy-play-store:
     runs-on: ubuntu-latest
     steps:
-       - uses: actions/checkout@v3
 
-      # 1
-       - run: echo  ${GITHUB_WORKSPACE}
-       - run: ls -l /home/runner/work/ScrumPoker/ScrumPoker/Documenti
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: build_appbundle_production_release.yml
+          name: android-production-release.aab
+#          path: ./android/
+
+#      - uses: actions/checkout@v3
        - name: Publish to Play Store internal test track
          uses: r0adkll/upload-google-play@v1
          with:
            serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
            # 3
            packageName: com.startingfinace.scrumpoker
-           releaseFile: /home/runner/work/ScrumPoker/ScrumPoker/Documenti/app-production-release.aab
-#           releaseFile: '/home/runner/work/ScrumPoker/ScrumPoker/Documenti/android-production-release.aab'
+           releaseFile: app-production-release.aab
+#           releaseFile: /home/runner/work/ScrumPoker/ScrumPoker/artifact/app-production-release.aab
  #           releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
            track: internal
            userFraction: 0.50
