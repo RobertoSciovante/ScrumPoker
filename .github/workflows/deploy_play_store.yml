@@ -1,4 +1,4 @@
-name: Deploy to Play Store V.006
+name: Deploy to Play Store V.007
 
 on:
   workflow_dispatch:
@@ -76,7 +76,7 @@ jobs:
 #           userFraction: 0.50
 # #          mappingFile: mapping.txt
       - name: Echo
-        run: echo 'Ciao mondo'
+        run: echo 'Ciao mondo 002'
       - name: Create file
         run: echo 'Ciao mondo' > ciao_mondo.aap
   list:
