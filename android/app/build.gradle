@@ -1,3 +1,8 @@
+
+logger.quiet('An info log message which is always logged.')
+logger.quiet('rootProject: {}', rootProject)
+
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
