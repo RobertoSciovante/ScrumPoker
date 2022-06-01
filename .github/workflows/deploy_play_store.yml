@@ -53,6 +53,15 @@ jobs:
         uses: andstor/file-existence-action@v1
         with:
           files: "android-production-release.aab"
+      - name: "Check file existence"
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "./android-production-release.aab"
+      - name: "Check file existence"
+        uses: andstor/file-existence-action@v1
+        with:
+          files: " build/app/outputs/bundle/productionRelease/app-production-release.aab"
+          
       # 2
       - name: Publish to Play Store internal test track
         uses: r0adkll/upload-google-play@v1
