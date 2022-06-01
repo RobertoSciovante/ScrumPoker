@@ -49,7 +49,7 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           # 3
-          packageName: com.raywenderlich.android.rwquotes
+          packageName: com.startingfinace.scrumpoker
           releaseFile: android-production-release.aab
           track: internal
           userFraction: 0.50
