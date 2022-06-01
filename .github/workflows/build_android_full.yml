@@ -20,21 +20,23 @@ jobs:
       #      - run: flutter test
       - run: flutter build appbundle --release --flavor production -t lib/main_production.dart
 
-      - name: Upload APPBUNDLE
-        uses: actions/upload-artifact@v1
-        with:
-          name: android-production-release.aab
-          path: build/app/outputs/bundle/productionRelease/app-production-release.aab
-#          path: build\app\outputs\bundle\productionRelease\app-production-release.aab
+#      - name: Upload APPBUNDLE
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: android-production-release.aab
+#          path: build/app/outputs/bundle/productionRelease/app-production-release.aab
+##          path: build\app\outputs\bundle\productionRelease\app-production-release.aab
+
+
 
   deploy-play-store:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
       # 1
-      - uses: actions/download-artifact@master
-        with:
-          name: android-production-release.aab
+#      - uses: actions/download-artifact@master
+#        with:
+#          name: android-production-release.aab
       #      - uses: actions/download-artifact@master
       #        with:
       #          name: mapping.txt
@@ -45,7 +47,8 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           # 3
           packageName: com.startingfinace.scrumpoker
-          releaseFile: android-production-release.aab
+#          releaseFile: android-production-release.aab
+          releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
           track: internal
           userFraction: 0.50
 #          mappingFile: mapping.txt

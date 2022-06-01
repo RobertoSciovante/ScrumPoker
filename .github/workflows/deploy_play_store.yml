@@ -38,9 +38,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 1
-      - uses: actions/download-artifact@master
-        with:
-          name: android-production-release.aab
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+
+#      - uses: actions/download-artifact@master
+#        with:
+#          name: android-production-release.aab
 #      - uses: actions/download-artifact@master
 #        with:
 #          name: mapping.txt
