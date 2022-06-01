@@ -1,4 +1,4 @@
-name: Deploy to Play Store V.002
+name: Deploy to Play Store V.003
 
 on:
   workflow_dispatch:
@@ -49,6 +49,10 @@ jobs:
 #      - uses: actions/download-artifact@master
 #        with:
 #          name: mapping.txt
+      - name: "Check file existence"
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "android-production-release.aab"
       # 2
       - name: Publish to Play Store internal test track
         uses: r0adkll/upload-google-play@v1
@@ -56,7 +60,7 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           # 3
           packageName: com.startingfinace.scrumpoker
-          releaseFile: android-production-release.aab
+          releaseFile: ./android-production-release.aab
 #           releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
           track: internal
           userFraction: 0.50
