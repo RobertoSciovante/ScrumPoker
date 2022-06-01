@@ -43,6 +43,7 @@ jobs:
         with:
           workflow: build_appbundle_production_release.yml
           name: android-production-release.aab
+          path: ./android/
 #      - uses: actions/download-artifact@master
 #        with:
 #          name: android-production-release.aab
