@@ -12,7 +12,7 @@ jobs:
     steps:
       # 1
        - run: echo  ${GITHUB_WORKSPACE}
-       - run: ls -l ${GITHUB_WORKSPACE}
+       - run: ls -l /home/runner/work/ScrumPoker/ScrumPoker
        - name: Publish to Play Store internal test track
          uses: r0adkll/upload-google-play@v1
          with:
