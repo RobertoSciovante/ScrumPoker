@@ -21,7 +21,7 @@ jobs:
       - run: flutter build appbundle --release --flavor production -t lib/main_production.dart
 
       - name: Upload APPBUNDLE
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: android-production-release.aab
           path: build/app/outputs/bundle/productionRelease/app-production-release.aab
@@ -34,9 +34,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 1
-#      - uses: actions/download-artifact@master
-#        with:
-#          name: android-production-release.aab
+      - uses: actions/download-artifact@v3
+        with:
+          name: android-production-release.aab
       #      - uses: actions/download-artifact@master
       #        with:
       #          name: mapping.txt
