@@ -24,9 +24,10 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           # 3
           packageName: com.startingfinace.scrumpoker
-          releaseFile: app-production-release.aab
+          releaseFiles: app-production-release.aab
 #          releaseFile: /home/runner/work/ScrumPoker/ScrumPoker/artifact/app-production-release.aab
  #          releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
           track: internal
-          userFraction: 0.50
+          status: draft
+#          userFraction: 0.50
  #         mappingFile: mapping.txt
