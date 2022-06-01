@@ -1,4 +1,4 @@
-name: Deploy to Play Store V.001
+name: Deploy to Play Store V.002
 
 on:
   workflow_dispatch:
@@ -50,14 +50,14 @@ jobs:
 #        with:
 #          name: mapping.txt
       # 2
-#       - name: Publish to Play Store internal test track
-#         uses: r0adkll/upload-google-play@v1
-#         with:
-#           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
-#           # 3
-#           packageName: com.startingfinace.scrumpoker
-# #          releaseFile: android-production-release.aab
-#           releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
-#           track: internal
-#           userFraction: 0.50
-# #          mappingFile: mapping.txt
+      - name: Publish to Play Store internal test track
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          # 3
+          packageName: com.startingfinace.scrumpoker
+#          releaseFile: android-production-release.aab
+          releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
+          track: internal
+          userFraction: 0.50
+#          mappingFile: mapping.txt
