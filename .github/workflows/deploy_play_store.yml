@@ -10,16 +10,18 @@ jobs:
   deploy-play-store:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+
       # 1
        - run: echo  ${GITHUB_WORKSPACE}
-       - run: ls -l /home/runner/work/ScrumPoker
+       - run: ls -l /home/runner/work/ScrumPoker/ScrumPoker
        - name: Publish to Play Store internal test track
          uses: r0adkll/upload-google-play@v1
          with:
            serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
            # 3
            packageName: com.startingfinace.scrumpoker
-           releaseFile: ../Documenti/android-production-release.aab
+           releaseFile: ./Documenti/android-production-release.aab
  #           releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
            track: internal
            userFraction: 0.50
