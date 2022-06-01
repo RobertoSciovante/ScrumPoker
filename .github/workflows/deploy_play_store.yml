@@ -1,4 +1,4 @@
-name: Deploy to Play Store V.007
+name: Deploy to Play Store V.008
 
 on:
   workflow_dispatch:
@@ -79,13 +79,13 @@ jobs:
         run: echo 'Ciao mondo 002'
       - name: Create file
         run: echo 'Ciao mondo' > ciao_mondo.aab
-  list:
-    needs: [deploy-play-store]
-    name: Path lister
-    runs-on: ubuntu-latest
-    steps:
+#   list:
+#     needs: [deploy-play-store]
+#     name: Path lister
+#     runs-on: ubuntu-latest
+#     steps:
       - name: Echo
-        run: echo 'File list aab'
+        run: echo 'File list aab direct'
          
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
