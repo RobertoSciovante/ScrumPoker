@@ -40,7 +40,9 @@ jobs:
       # 1
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
-
+        with:
+          workflow: build_appbundle_production_release
+          name: android-production-release.aab
 #      - uses: actions/download-artifact@master
 #        with:
 #          name: android-production-release.aab
@@ -54,7 +56,8 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           # 3
           packageName: com.startingfinace.scrumpoker
-          releaseFile: android-production-release.aab
+#          releaseFile: android-production-release.aab
+          releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
           track: internal
           userFraction: 0.50
 #          mappingFile: mapping.txt
