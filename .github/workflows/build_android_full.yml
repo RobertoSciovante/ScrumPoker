@@ -1,4 +1,4 @@
-name: build_appbundle_production_release
+name: build_android_full
 
 on:
   workflow_dispatch:
