@@ -78,14 +78,14 @@ jobs:
       - name: Echo
         run: echo 'Ciao mondo 002'
       - name: Create file
-        run: echo 'Ciao mondo' > ciao_mondo.aap
+        run: echo 'Ciao mondo' > ciao_mondo.aab
   list:
     needs: [deploy-play-store]
     name: Path lister
     runs-on: ubuntu-latest
     steps:
       - name: Echo
-        run: echo 'File list  001'
+        run: echo 'File list aab'
          
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
@@ -99,7 +99,7 @@ jobs:
         uses: Rishabh510/Path-lister-action@master
         with:
           path: "/"
-#           type: ".yml"
+          type: ".aab"
 
       - name: Output results
         run: |
