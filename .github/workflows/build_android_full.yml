@@ -20,11 +20,11 @@ jobs:
       #      - run: flutter test
       - run: flutter build appbundle --release --flavor production -t lib/main_production.dart
 
-#      - name: Upload APPBUNDLE
-#        uses: actions/upload-artifact@v1
-#        with:
-#          name: android-production-release.aab
-#          path: build/app/outputs/bundle/productionRelease/app-production-release.aab
+      - name: Upload APPBUNDLE
+        uses: actions/upload-artifact@v1
+        with:
+          name: android-production-release.aab
+          path: build/app/outputs/bundle/productionRelease/app-production-release.aab
 ##          path: build\app\outputs\bundle\productionRelease\app-production-release.aab
 
 
