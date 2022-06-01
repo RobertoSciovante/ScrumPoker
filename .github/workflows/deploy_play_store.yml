@@ -28,6 +28,6 @@ jobs:
 #          releaseFile: /home/runner/work/ScrumPoker/ScrumPoker/artifact/app-production-release.aab
  #          releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
           track: internal
-          status: draft
+          status: completed
 #          userFraction: 0.50
  #         mappingFile: mapping.txt
