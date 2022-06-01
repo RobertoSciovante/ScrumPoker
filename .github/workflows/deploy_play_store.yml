@@ -41,7 +41,7 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: build_appbundle_production_release
+          workflow: build_appbundle_production_release.yml
           name: android-production-release.aab
 #      - uses: actions/download-artifact@master
 #        with:
