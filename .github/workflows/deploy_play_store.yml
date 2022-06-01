@@ -34,7 +34,7 @@ jobs:
 #          path: app/build/outputs/mapping/release/mapping.txt
 
   deploy-play-store:
-    needs: [build]
+#    needs: [build]
     runs-on: ubuntu-latest
     steps:
       # 1
