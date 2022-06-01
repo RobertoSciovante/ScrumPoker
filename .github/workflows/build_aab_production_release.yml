@@ -1,0 +1,27 @@
+name: build_aab_production_release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  releases:
+    name: build aab production-release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.1'
+      - run: flutter pub get
+      #      - run: flutter test
+      - run: flutter build aab --release --flavor production -t lib/main_production.dart
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v1
+        with:
+          name: android-production-release.aab
+          path: build/app/outputs/flutter-aab/app-production-release.aab

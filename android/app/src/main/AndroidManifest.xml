@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.startingfinace.scrumpoker.scrum_poker">
+    package="com.startingfinace.scrumpoker">
    <application
         android:label="${appName}"
         android:icon="@mipmap/ic_launcher">
