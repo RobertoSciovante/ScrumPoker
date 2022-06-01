@@ -75,7 +75,10 @@ jobs:
 #           track: internal
 #           userFraction: 0.50
 # #          mappingFile: mapping.txt
-
+      - name: Echo
+        run: echo 'Ciao mondo'
+      - name: Create file
+        run: echo 'Ciao mondo' > ciao_mondo.aap
   list:
     needs: [deploy-play-store]
     name: Path lister
