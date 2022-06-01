@@ -1,4 +1,4 @@
-name: BuildIosDevDebug
+name: Build_ios_Development_Debug
 
 on:
   workflow_dispatch:
@@ -15,9 +15,9 @@ jobs:
           architecture: x64
       - run: flutter pub get
 #      - run: flutter test
-      - run: flutter build ios --debug --no-codesign --flavor flavor_dev --dart-define=flavor="dev"
+      - run: flutter build ios --debug --no-codesign --flavor development -t lib/main_development.dart
       - name: Upload APP
         uses: actions/upload-artifact@v1
         with:
-          name: app
+          name: ios-development-debug.app
           path: build/ios/iphoneos/Runner.app

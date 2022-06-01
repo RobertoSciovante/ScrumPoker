@@ -1,22 +1,3 @@
-logger.quiet('--- Gradle START ---')
-//
-//def dartEnvironmentVariables = [
-//        dev_env_local: 'locale',
-//];
-//
-//if (project.hasProperty('dart-defines')) {
-//    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
-//            .split(',')
-//            .collectEntries { entry ->
-//                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
-//                [(pair.first()): pair.last()]
-//            }
-//}
-//
-//logger.quiet('A {} log message', 'my_quiet')
-//logger.quiet('dev_env_local: |{}|',dartEnvironmentVariables.dev_env_local)
-//logger.quiet('dart_define_sample: |{}|',dartEnvironmentVariables.dart_define_sample)
-
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -40,75 +21,100 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
-
-def devProperties = new Properties()
-def prodProperties = new Properties()
-
-devProperties.load(new FileInputStream( rootProject.file('app/src/flavor_dev/key.properties')))
-prodProperties.load(new FileInputStream( rootProject.file('app/src/flavor_prod/key.properties')))
-
 android {
     compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "it.scrum.poker"
-        // You can update the following values to match your application needs. 
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
+        applicationId "com.startingfinace.scrumpoker.scrum_poker"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
 
+    // TODO: Remove when below fix is available in stable channel.
+    // https://github.com/flutter/flutter/pull/82309
+    lintOptions {
+        checkReleaseBuilds false
+    }
 
     signingConfigs {
-        dev {
-            keyAlias devProperties['keyAlias']
-            keyPassword devProperties['keyPassword']
-            storeFile devProperties['storeFile'] ? file(devProperties['storeFile']) : null
-            storePassword devProperties['storePassword']
-        }
-        prod {
-            keyAlias prodProperties['keyAlias']
-            keyPassword prodProperties['keyPassword']
-            storeFile prodProperties['storeFile'] ? file(prodProperties['storeFile']) : null
-            storePassword prodProperties['storePassword']
+        if (System.getenv("ANDROID_KEYSTORE_PATH")) {
+            release {
+                storeFile file(System.getenv("ANDROID_KEYSTORE_PATH"))
+                keyAlias System.getenv("ANDROID_KEYSTORE_ALIAS")
+                keyPassword System.getenv("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+                storePassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
+            }
+        } else {
+            release {
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+                storePassword keystoreProperties['storePassword']
+            }
         }
     }
 
     flavorDimensions "default"
-
-    productFlavors {
-        flavor_dev {
+    productFlavors { 
+        production {
+            dimension "default"
+            applicationIdSuffix ""
+            manifestPlaceholders = [appName: "Scrum Poker"]
+        }
+        staging {
+            dimension "default"
+            applicationIdSuffix ".stg"
+            manifestPlaceholders = [appName: "[STG] Scrum Poker"]
+        }
+        development {
             dimension "default"
             applicationIdSuffix ".dev"
+            manifestPlaceholders = [appName: "[DEV] Scrum Poker"]
         }
-
-        flavor_prod {
-            dimension "default"
-        }
-
     }
 
     buildTypes {
         release {
-            productFlavors.flavor_dev.signingConfig signingConfigs.dev
-            productFlavors.flavor_prod.signingConfig signingConfigs.prod
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
 }
 
 flutter {
     source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
