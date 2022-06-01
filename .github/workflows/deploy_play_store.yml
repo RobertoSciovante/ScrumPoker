@@ -38,12 +38,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 1
-      - name: Download artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: build_appbundle_production_release.yml
-          name: android-production-release.aab
-          path: ./android/
+#       - name: Download artifact
+#         uses: dawidd6/action-download-artifact@v2
+#         with:
+#           workflow: build_appbundle_production_release.yml
+#           name: android-production-release.aab
+#           path: ./android/
 #      - uses: actions/download-artifact@master
 #        with:
 #          name: android-production-release.aab
@@ -75,10 +75,10 @@ jobs:
 #           track: internal
 #           userFraction: 0.50
 # #          mappingFile: mapping.txt
-      - name: Echo
-        run: echo 'Ciao mondo 002'
-      - name: Create file
-        run: echo 'Ciao mondo' > ciao_mondo.aab
+#       - name: Echo
+#         run: echo 'Ciao mondo 002'
+#       - name: Create file
+#         run: echo 'Ciao mondo' > ciao_mondo.aab
 #   list:
 #     needs: [deploy-play-store]
 #     name: Path lister
@@ -98,8 +98,8 @@ jobs:
         id: pl
         uses: Rishabh510/Path-lister-action@master
         with:
-          path: "/"
-          type: ".aab"
+          path: "./"
+#           type: ".aab"
 
       - name: Output results
         run: |
