@@ -17,7 +17,6 @@ jobs:
           workflow: build_appbundle_production_release.yml
           name: android-production-release.aab
 #          path: ./android/
-
 #      - uses: actions/checkout@v3
       - name: Publish to Play Store internal test track
         uses: r0adkll/upload-google-play@v1
