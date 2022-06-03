@@ -25,4 +25,3 @@ jobs:
         with:
           name: android-production-release.aab
           path: build/app/outputs/bundle/productionRelease/app-production-release.aab
-#          path: build\app\outputs\bundle\productionRelease\app-production-release.aab

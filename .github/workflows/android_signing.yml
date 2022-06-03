@@ -29,8 +29,8 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-    - name: Upload signed artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: Signed app bundle
-        path: ${{steps.sign_app.outputs.signedReleaseFile}}
+      - name: Upload signed artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-production-release-signed.aab
+          path: ${{steps.sign_app.outputs.signedReleaseFile}}
