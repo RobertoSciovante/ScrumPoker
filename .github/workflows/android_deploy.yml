@@ -1,4 +1,4 @@
-name: Deploy to Play Store
+name: Android deploy app bundle to Play Store
 
 on:
   workflow_dispatch:

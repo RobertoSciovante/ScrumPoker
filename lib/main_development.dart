@@ -5,9 +5,11 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:scrum_poker/app/app.dart';
 import 'package:scrum_poker/bootstrap.dart';
+import 'package:scrum_poker/com/startingfinace/scrumpoker/AppConfig.dart';
+
+import 'package:scrum_poker/main.dart';
 
 void main() {
-  bootstrap(() => const App("development"));
+  bootstrap(() => App(Flavor.development));
 }

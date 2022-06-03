@@ -1,0 +1,36 @@
+name: Android signing app bundle
+
+on:
+  workflow_dispatch:
+#  push:
+#    branches:
+#      - master
+
+jobs:
+  deploy-play-store:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: build_appbundle_production_release.yml
+          name: artifacts/android-production-release.aab
+      - name: Sign APK
+        uses: r0adkll/sign-android-release@v1
+        # ID used to access action output
+        id: sign_app
+        with:
+#          releaseFiles: app-production-release.aab
+
+          releaseDirectory: artifacts
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+    - name: Upload signed artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Signed app bundle
+        path: ${{steps.sign_app.outputs.signedReleaseFile}}
