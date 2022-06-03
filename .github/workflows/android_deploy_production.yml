@@ -10,24 +10,17 @@ jobs:
   deploy-play-store:
     runs-on: ubuntu-latest
     steps:
-
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: build_appbundle_production_release.yml
-          name: android-production-release.aab
-#          path: ./android/
-#      - uses: actions/checkout@v3
+          workflow: android_signing_production.yml
+          name: android-production-release-signed.aab
+          path: artifacts/
       - name: Publish to Play Store internal test track
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
-          # 3
           packageName: com.startingfinace.scrumpoker
-          releaseFiles: app-production-release.aab
-#          releaseFile: /home/runner/work/ScrumPoker/ScrumPoker/artifact/app-production-release.aab
- #          releaseFile: build/app/outputs/bundle/productionRelease/app-production-release.aab
+          releaseFiles: artifacts/android_signing_production.aab
           track: internal
-          status: completed
-#          userFraction: 0.50
- #         mappingFile: mapping.txt
+          status: draft

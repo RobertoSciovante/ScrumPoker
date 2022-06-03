@@ -14,8 +14,9 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: build_appbundle_production_release.yml
-          name: artifacts/android-production-release.aab
+          workflow: android_build_production_release.yml
+          name: android-production-release.aab
+          path: artifacts
       - name: Sign APK
         uses: r0adkll/sign-android-release@v1
         # ID used to access action output
