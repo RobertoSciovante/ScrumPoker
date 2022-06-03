@@ -1,4 +1,4 @@
-name: Android signing app bundle
+name: Android Step 2 - signing app bundle
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: Android deploy app bundle to Play Store
+name: Android Step 3 - deploy app bundle to Play Store
 
 on:
   workflow_dispatch:
@@ -21,6 +21,6 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: com.startingfinace.scrumpoker
-          releaseFiles: artifacts/android_signing_production.aab
+          releaseFiles: artifacts/android-production-release-signed.aab
           track: internal
           status: draft
