@@ -22,8 +22,6 @@ jobs:
         # ID used to access action output
         id: sign_app
         with:
-#          releaseFiles: app-production-release.aab
-
           releaseDirectory: artifacts
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}

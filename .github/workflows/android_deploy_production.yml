@@ -21,6 +21,6 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: com.startingfinace.scrumpoker
-          releaseFiles: signed/android-production-release-signed.aab
+          releaseFiles: signed/app-production-release.aab
           track: internal
           status: draft
