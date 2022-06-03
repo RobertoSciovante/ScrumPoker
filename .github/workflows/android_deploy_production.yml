@@ -15,12 +15,12 @@ jobs:
         with:
           workflow: android_signing_production.yml
           name: android-production-release-signed.aab
-          path: artifacts/
+          path: signed/
       - name: Publish to Play Store internal test track
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: com.startingfinace.scrumpoker
-          releaseFiles: artifacts/android-production-release-signed.aab
+          releaseFiles: signed/android-production-release-signed.aab
           track: internal
           status: draft
