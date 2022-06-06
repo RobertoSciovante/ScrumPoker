@@ -1,11 +1,11 @@
-name: Android Step 1 - build production-release app bundle
+name: Android Step 1 - build production-release
 
 on:
   workflow_dispatch:
 
 jobs:
-  releases:
-    name: build appbundle production-release
+  build:
+    name: android build production-release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

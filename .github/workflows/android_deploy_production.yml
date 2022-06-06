@@ -23,4 +23,4 @@ jobs:
           packageName: com.startingfinace.scrumpoker
           releaseFiles: signed/app-production-release.aab
           track: internal
-          status: draft
+          status: completed
