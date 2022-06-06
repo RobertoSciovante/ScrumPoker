@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: say_hello_bob
-        uses: ./.github/workflows/sat_hello.yml
+        uses: ./.github/workflows/say_hello.yml
         with:
           my_name: Bob01
