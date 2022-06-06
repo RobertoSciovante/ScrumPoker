@@ -1,4 +1,4 @@
-name: Say hello
+name: Say hello 2
 
 on:
   workflow_call:
@@ -6,6 +6,7 @@ on:
       my_name:
         required: true
         type: string
+
 jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
