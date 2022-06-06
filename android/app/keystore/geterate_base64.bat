@@ -1,1 +1,0 @@
-C:\ProgramiStandAlone\OpenSSL\bin\openssl base64 < production_keystore.jks > production_keystore.jks.base64.txt
