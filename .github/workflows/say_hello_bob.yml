@@ -1,4 +1,4 @@
-name: Say hello bob
+name: Say hello Bob2
 
 on:
   workflow_dispatch:
