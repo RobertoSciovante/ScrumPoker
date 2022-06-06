@@ -4,7 +4,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  call-workflow-passing-data:
-    uses: RobertoSciovante/ScrumPoker/REPO_NAME/.github/workflows/sat_hello.yml@main
-    with:
-      my_name: Bob01
+  deploy-play-store:
+    runs-on: ubuntu-latest
+    steps:
+      - name: say_hello_bob
+        uses: RobertoSciovante/ScrumPoker/REPO_NAME/.github/workflows/sat_hello.yml@main
+        with:
+          my_name: Bob01

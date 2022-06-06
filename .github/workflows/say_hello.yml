@@ -1,4 +1,4 @@
-name: Say hello 2
+name: Say hello reusable
 
 on:
   workflow_call:
