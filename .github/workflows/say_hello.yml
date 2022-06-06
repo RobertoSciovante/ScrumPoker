@@ -1,12 +1,11 @@
 name: Say hello
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       my_name:
-        description: 'Come ti chiami?'
         required: true
-
+        type: string
 jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest

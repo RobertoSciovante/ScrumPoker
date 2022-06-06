@@ -1,8 +1,8 @@
-
 name: Say hello bob
 
 on:
   workflow_dispatch:
+
 jobs:
   call-workflow-passing-data:
     uses: RobertoSciovante/ScrumPoker/REPO_NAME/.github/workflows/sat_hello.yml@main
