@@ -5,6 +5,6 @@ on:
 
 jobs:
   call-workflow-passing-data:
-    uses: ./.github/workflows/say_hello.yml@main
+    uses: RobertoSciovante/ScrumPoker/.github/workflows/say_hello.yml@main
     with:
       username: mona
