@@ -7,6 +7,7 @@ jobs:
   deploy-play-store:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: say_hello_bob
         uses: ./.github/workflows/say_hello.yml
         with:
