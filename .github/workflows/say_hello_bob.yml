@@ -7,4 +7,4 @@ jobs:
   call-workflow-passing-data:
     uses: ./.github/workflows/say_hello.yml@main
     with:
-      my_name: mona
+      username: mona

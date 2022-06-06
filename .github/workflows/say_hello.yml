@@ -3,7 +3,7 @@ name: Say hello reusable
 on:
   workflow_call:
     inputs:
-      my_name:
+      username:
         required: true
         type: string
 
@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say hello
-        run: echo "hello ${{ github.event.inputs.my_name }}"
+        run: echo "hello ${{ inputs.username }} xxx"
