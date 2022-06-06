@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: say_hello_bob
-        uses: ../.github/workflows/say_hello.yml
+        uses: ./.github/workflows/say_hello.yml
         with:
           my_name: Bob01
