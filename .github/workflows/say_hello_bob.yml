@@ -7,8 +7,8 @@ jobs:
   deploy-play-store:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+#      - uses: actions/checkout@v3
       - name: say_hello_bob
-        uses: ./.github/workflows/say_hello.yml
+        uses: RobertoSciovante/ScrumPoker/.github/workflows/reusable-workflow.yml@main
         with:
           my_name: Bob01
