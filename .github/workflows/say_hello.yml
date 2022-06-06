@@ -14,4 +14,4 @@ jobs:
     steps:
 
       - name: Say hello
-        run: echo "hello ${{ my_name }}"
+        run: echo "hello ${{ github.event.inputs.my_name }}"
