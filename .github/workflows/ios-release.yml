@@ -29,16 +29,16 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-#      - name: Install and set Flutter version
-#        uses: subosito/flutter-action@v2
-#        with:
-#          flutter-version: '3.0.1'
-#
-#      - name: Restore packages
-#        run: flutter pub get
-#
-#      - name: Build Flutter
-#        run: flutter build ios --release --flavor production -t lib/main_production.dart --no-codesign
+      - name: Install and set Flutter version
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.1'
+
+      - name: Restore packages
+        run: flutter pub get
+
+      - name: Build Flutter
+        run: flutter build ios --release --flavor production -t lib/main_production.dart --no-codesign
 
       - name: Build resolve Swift dependencies
         run: xcodebuild -resolvePackageDependencies -workspace ios/Runner.xcworkspace -scheme Runner -configuration Release
@@ -47,3 +47,5 @@ jobs:
         run: |
           xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -configuration Release DEVELOPMENT_TEAM='ZS99A4QXZW' -sdk 'iphoneos' -destination 'generic/platform=iOS' -archivePath build-output/app.xcarchive PROVISIONING_PROFILE='fd964007-fc60-4afc-9b47-b98c3b81a7f9' clean archive CODE_SIGN_IDENTITY="Starting Finance Provisioning Profile Distribution"
 
+      - name: Export ipa
+        run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
