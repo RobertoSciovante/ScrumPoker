@@ -33,7 +33,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: aios-build.yml
-          name: release-ios
+          name: ios-release-production-no-codesign.app
           path: build-output/ios
 
       - name: Build resolve Swift dependencies

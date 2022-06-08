@@ -40,8 +40,15 @@ jobs:
       - name: Build Flutter
         run: flutter build ios --release --flavor production -t lib/main_production.dart --no-codesign
 
-      - name: Upload APP
+
+      - name: Upload Runner.app
         uses: actions/upload-artifact@v1
         with:
-          name: release-ios
-          path: build-output/ios
+          name: ios-release-production-no-codesign.app
+          path: build/ios/iphoneos/Runner.app
+
+#      - name: Upload APP
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: release-ios
+#          path: build-output/ios
