@@ -38,4 +38,5 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter
-        run: flutter build ios --release --flavor production --no-codesign
+        run: flutter build ios --release --flavor production -t lib/main_production.dart --no-codesign
+#        run: flutter build appbundle --release --flavor production -t lib/main_production.dart --no-codesign
