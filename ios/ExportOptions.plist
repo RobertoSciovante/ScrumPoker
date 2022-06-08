@@ -16,8 +16,8 @@
 
         <key>provisioningProfiles</key>
         <dict>
-<!--            <key>com.startingfinance.startingFinance</key>-->
-            <key>com.startingfinace.scrumpoker.scrum-poker</key>
+            <key>com.startingfinance.startingFinance</key>
+<!--            <key>com.startingfinace.scrumpoker.scrum-poker</key>-->
             <string>fd964007-fc60-4afc-9b47-b98c3b81a7f9</string>
         </dict>
     </dict>
