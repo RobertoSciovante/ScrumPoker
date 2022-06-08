@@ -29,14 +29,16 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-      - name: Install and set Flutter version
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.0.1'
+#      - name: Install and set Flutter version
+#        uses: subosito/flutter-action@v2
+#        with:
+#          flutter-version: '3.0.1'
+#
+#      - name: Restore packages
+#        run: flutter pub get
+#
+#      - name: Build Flutter
+#        run: flutter build ios --release --flavor production -t lib/main_production.dart --no-codesign
 
-      - name: Restore packages
-        run: flutter pub get
-
-      - name: Build Flutter
-        run: flutter build ios --release --flavor production -t lib/main_production.dart --no-codesign
-#        run: flutter build appbundle --release --flavor production -t lib/main_production.dart --no-codesign
+      - name: Build resolve Swift dependencies
+        run: xcodebuild -resolvePackageDependencies -workspace ios/Runner.xcworkspace -scheme Runner -configuration Release
