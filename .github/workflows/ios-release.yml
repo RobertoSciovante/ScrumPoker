@@ -15,12 +15,12 @@ jobs:
       - name: Install Apple Certificate
         uses: apple-actions/import-codesign-certs@v1
         with:
-          p12-file-base64: ${{ secrets.P12_BASE64 }}
-          p12-password: ${{ secrets.P12_PASSWORD }}
+          p12-file-base64: ${{ secrets.BUILD_CERTIFICATE_BASE64_DISTRIBUTION_APPLE }}
+          p12-password: ${{ secrets.P12_PASSWORD_DISTRIBUTION_APPLE }}
 
       - name: Install the provisioning profile
         env:
-          PROVISIONING_CERTIFICATE_BASE64: ${{ secrets.PROVISIONING_PROFILE_BASE64 }}
+          PROVISIONING_CERTIFICATE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_DISTRIBUTION_BASE64_APPLE }}
         run: |
           PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
 
