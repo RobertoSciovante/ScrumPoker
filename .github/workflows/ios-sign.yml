@@ -32,7 +32,7 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: aios-build.yml
+          workflow: ios-build.yml
           name: ios-release-production-no-codesign.app
           path: build-output/ios
 
