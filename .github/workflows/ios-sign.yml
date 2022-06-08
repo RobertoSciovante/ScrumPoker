@@ -29,16 +29,12 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-      - name: Install and set Flutter version
-        uses: subosito/flutter-action@v2
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
         with:
-          flutter-version: '3.0.1'
-
-      - name: Restore packages
-        run: flutter pub get
-
-      - name: Build Flutter
-        run: flutter build ios --release --flavor production -t lib/main_production.dart --no-codesign
+          workflow: aios-build.yml
+          name: release-ios
+          path: build-output/ios
 
       - name: Build resolve Swift dependencies
         run: xcodebuild -resolvePackageDependencies -workspace ios/Runner.xcworkspace -scheme Runner -configuration Release
