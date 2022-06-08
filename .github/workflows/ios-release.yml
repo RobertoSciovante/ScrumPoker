@@ -1,4 +1,4 @@
-name: Flutter_iOS
+name: iOS-full
 
 on:
   workflow_dispatch:
