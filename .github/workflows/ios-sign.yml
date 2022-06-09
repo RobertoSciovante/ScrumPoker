@@ -34,7 +34,10 @@ jobs:
         with:
 #          workflow: ios-build.yml
           workflow: ios-full.yml
+#          name: ios-release-production-no-codesign.app
+#          path: build-output/ios
           name: ios-release-production-no-codesign.app
+#          path: build/ios/iphoneos/Runner.app
           path: build-output/ios
 
       - name: Build resolve Swift dependencies
