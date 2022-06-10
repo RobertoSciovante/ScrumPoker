@@ -4,21 +4,40 @@
     <dict>
         <key>method</key>
         <string>app-store</string> <!-- app-store, ad-hoc, enterprise, development -->
-
-<!--        <key>manageAppVersionAndBuildNumber</key>-->
-<!--        <false/>-->
-
         <key>teamID</key>
         <string>ZS99A4QXZW</string>
-
         <key>signingStyle</key>
         <string>manual</string>
-
         <key>provisioningProfiles</key>
         <dict>
             <key>com.startingfinance.startingFinance</key>
-<!--            <key>com.startingfinace.scrumpoker.scrum-poker</key>-->
             <string>fd964007-fc60-4afc-9b47-b98c3b81a7f9</string>
         </dict>
     </dict>
 </plist>
+
+
+    <!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">-->
+<!--<plist version="1.0">-->
+<!--    <dict>-->
+<!--        <key>method</key>-->
+<!--        <string>app-store</string> &lt;!&ndash; app-store, ad-hoc, enterprise, development &ndash;&gt;-->
+
+<!--&lt;!&ndash;        <key>manageAppVersionAndBuildNumber</key>&ndash;&gt;-->
+<!--&lt;!&ndash;        <false/>&ndash;&gt;-->
+
+<!--        <key>teamID</key>-->
+<!--        <string>ZS99A4QXZW</string>-->
+
+<!--        <key>signingStyle</key>-->
+<!--        <string>manual</string>-->
+
+<!--        <key>provisioningProfiles</key>-->
+<!--        <dict>-->
+<!--            <key>com.startingfinance.startingFinance</key>-->
+<!--&lt;!&ndash;            <key>com.startingfinace.scrumpoker.scrum-poker</key>&ndash;&gt;-->
+<!--            <string>fd964007-fc60-4afc-9b47-b98c3b81a7f9</string>-->
+<!--        </dict>-->
+<!--    </dict>-->
+<!--</plist>-->
