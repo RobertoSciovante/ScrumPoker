@@ -1,4 +1,4 @@
-name: iOS-full
+name: iOS-Full.002
 
 on:
   workflow_dispatch:
@@ -7,7 +7,18 @@ jobs:
   build_ios:
     runs-on: macos-latest
 
+
+
+
+
+
     steps:
+
+
+
+
+
+
       - name: Checkout the code
         uses: actions/checkout@v2
 
@@ -23,9 +34,7 @@ jobs:
           PROVISIONING_CERTIFICATE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_DISTRIBUTION_BASE64_APPLE }}
         run: |
           PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
-
           echo -n "$PROVISIONING_CERTIFICATE_BASE64" | base64 --decode --output $PP_PATH
-
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
@@ -36,6 +45,8 @@ jobs:
 
       - name: Restore packages
         run: flutter pub get
+
+
 
       - name: Build Flutter
         run: flutter build ios --release --flavor production -t lib/main_production.dart --no-codesign
@@ -56,7 +67,7 @@ jobs:
       - name: Export ipa
         run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
 
-      - name: Publish iOS Artefacts
+      - name: Upload iOS Artefacts
         uses: actions/upload-artifact@v1
         with:
           name: ios-release-production

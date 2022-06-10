@@ -33,7 +33,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
 #          workflow: ios-build.yml
-          workflow: ios-full.yml
+          workflow: ios_full.yml
 #          name: ios-release-production-no-codesign.app
 #          path: build-output/ios
           name: ios-release-production-no-codesign.app
