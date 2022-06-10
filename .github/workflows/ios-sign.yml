@@ -71,7 +71,6 @@ jobs:
 
       - name: Export ipa
         run: xcodebuild \
-          -exportArchive \
           -archivePath /Users/runner/work/ScrumPoker/ScrumPoker/build-output/app.xcarchive \
           -exportPath build-output/ios \
           -exportOptionsPlist \
