@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: app.xcarchive
-          path: /Users/runner/work/ScrumPoker/ScrumPoker/build-output/app.xcarchive
+          path: build-output/app.xcarchive
