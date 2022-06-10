@@ -11,6 +11,8 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
+      - name: Current folder
+        run: pwd
 
       - name: Install Apple Certificate
         uses: apple-actions/import-codesign-certs@v1
@@ -46,7 +48,7 @@ jobs:
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
           -configuration Release \
-          -archivePath build-output/app.xcarchive \
+          -archivePath build/app.xcarchive \
           -resolvePackageDependencies \
           clean \
           archive
@@ -54,4 +56,4 @@ jobs:
 # List Folder
 
       - name: List
-        run: ls -l
+        run: ls -R
