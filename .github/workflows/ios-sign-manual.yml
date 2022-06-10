@@ -1,4 +1,4 @@
-name: iOS Step 2 - Sign  (6)
+name: iOS Step 2 - Sign Manual (1)
 
 on:
   workflow_dispatch:
