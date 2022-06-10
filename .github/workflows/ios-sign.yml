@@ -72,9 +72,9 @@ jobs:
       - name: Export ipa
         run: xcodebuild \
           -archivePath /Users/runner/work/ScrumPoker/ScrumPoker/build-output/app.xcarchive \
-          -exportPath build-output/ios \
-          -exportOptionsPlist \
-          ios/ExportOptions.plist
+          -exportPath build-output/ios
+
+#          -exportOptionsPlist ios/ExportOptions.plist
 
 
 #      - name: Upload app.xcarchive
