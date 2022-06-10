@@ -44,7 +44,7 @@ jobs:
           -workspace ios/Runner.xcworkspace \
           -scheme Runner \
           -configuration Release \
-          -archivePath build-output/app.xcarchive \
+#          -archivePath build-output/app.xcarchive \
           -resolvePackageDependencies
       #\\\         DEVELOPMENT_TEAM='ZS99A4QXZW'
 
@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: app.xcarchive
-          path: build-output/app.xcarchive
+          path: /Users/runner/work/ScrumPoker/ScrumPoker/build-output/app.xcarchive
