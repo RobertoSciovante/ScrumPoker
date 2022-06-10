@@ -44,12 +44,18 @@ jobs:
           -workspace ios/Runner.xcworkspace \
           -scheme Runner \
           -configuration Release \
-          -resolvePackageDependencies
-      #          -archivePath build-output/app.xcarchive \
+          -resolvePackageDependencies \
+          -archivePath build-output/app.xcarchive \
+          clean \
+          archive \
       #\\\         DEVELOPMENT_TEAM='ZS99A4QXZW'
 
-      - name: Upload app.xcarchive
-        uses: actions/upload-artifact@v1
-        with:
-          name: app.xcarchive
-          path: deploy/Runner.ipa
+      - name: Export ipa
+        run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
+
+
+#      - name: Upload app.xcarchive
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: app.xcarchive
+#          path: deploy/Runner.ipa

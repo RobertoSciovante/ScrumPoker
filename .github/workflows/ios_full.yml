@@ -91,7 +91,7 @@ jobs:
             -scheme Runner
             -configuration Release
             -resolvePackageDependencies
-      -
+
       - name: Export ipa
         run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
 
