@@ -1,4 +1,4 @@
-name: iOS.2 - Sign Manual (4)
+name: iOS.2 - Sign Manual (5)
 
 on:
   workflow_dispatch:
@@ -36,14 +36,19 @@ jobs:
           name: ios-release-production-no-codesign-manual.app
           path: build/ios/iphoneos/
 
-      - name: Build xArchive Worng
+      - name: Build xArchive
         run: |
-          xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -configuration Release DEVELOPMENT_TEAM='ZS99A4QXZW' -sdk 'iphoneos' -destination 'generic/platform=iOS' -archivePath build-output/app.xcarchive PROVISIONING_PROFILE='fd964007-fc60-4afc-9b47-b98c3b81a7f9' clean archive CODE_SIGN_IDENTITY="Apple Development"
-
-#      - name: Build xArchive Manual xxx
-#        run: |
-#          xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -sdk 'iphoneos' -destination 'generic/platform=iOS' -configuration Releas -archivePath build-output/app.xcarchive -resolvePackageDependencies clean archive PROVISIONING_PROFILE="fd964007-fc60-4afc-9b47-xxxx" CODE_SIGN_IDENTITY="Apple Development xx" DEVELOPMENT_TEAM=ZS99A4Qxxx
-#          xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -sdk 'iphoneos' -destination 'generic/platform=iOS' -configuration Releas -archivePath build-output/app.xcarchive -resolvePackageDependencies clean archive PROVISIONING_PROFILE="fd964007-fc60-4afc-9b47-b98c3b81a7f9" CODE_SIGN_IDENTITY="Apple Development" DEVELOPMENT_TEAM=ZS99A4QXZW
+          xcodebuild \
+          -workspace ios/Runner.xcworkspace \
+          -scheme Runner \
+          -configuration Release \
+          DEVELOPMENT_TEAM='ZS99A4QXZW' \
+          -sdk 'iphoneos' \
+          -destination 'generic/platform=iOS' \
+          -archivePath build-output/app.xcarchive \
+          PROVISIONING_PROFILE='fd964007-fc60-4afc-9b47-b98c3b81a7f9' \
+          clean archive \
+          CODE_SIGN_IDENTITY="Apple Development"
 
 #      - name: Upload app.xcarchive
 #        uses: actions/upload-artifact@v1
