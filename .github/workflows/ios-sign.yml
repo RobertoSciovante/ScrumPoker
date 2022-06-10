@@ -30,6 +30,13 @@ jobs:
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
 
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: android_build_production_release.yml
+          name: android-production-release.aab
+          path: artifacts
+
       - name: Download Runner.app
         uses: dawidd6/action-download-artifact@v2
         with:
