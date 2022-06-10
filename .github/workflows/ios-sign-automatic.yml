@@ -48,7 +48,7 @@ jobs:
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
           -configuration Release \
-          -archivePath build-output/app.xcarchive \
+          -archivePath 'build-output/app.xcarchive' \
           -resolvePackageDependencies \
           clean \
           archive

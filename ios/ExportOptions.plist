@@ -4,11 +4,15 @@
     <dict>
         <key>method</key>
         <string>app-store</string> <!-- app-store, ad-hoc, enterprise, development -->
+
         <key>teamID</key>
         <string>ZS99A4QXZW</string>
+
         <key>signingStyle</key>
         <string>manual</string>
+
         <key>provisioningProfiles</key>
+
         <dict>
             <key>com.startingfinance.startingFinance</key>
             <string>fd964007-fc60-4afc-9b47-b98c3b81a7f9</string>
