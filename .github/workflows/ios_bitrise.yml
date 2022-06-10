@@ -1,4 +1,4 @@
-name: iOS-Bitrise - 001
+name: iOS-Bitrise - 002
 
 on:
   workflow_dispatch:
