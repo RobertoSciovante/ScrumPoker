@@ -1,4 +1,4 @@
-name: iOS-Bitrise - 002
+name: iOS-Export IPA
 
 on:
   workflow_dispatch:

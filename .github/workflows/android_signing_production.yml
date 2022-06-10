@@ -17,6 +17,7 @@ jobs:
           workflow: android_build_production_release.yml
           name: android-production-release.aab
           path: artifacts
+
       - name: Sign APK
         uses: r0adkll/sign-android-release@v1
         # ID used to access action output
