@@ -89,9 +89,9 @@ jobs:
           xcodebuild \
           -workspace ios/Runner.xcworkspace \
           -scheme Runner \
-          -configuration Release
+          -configuration Release \
           -resolvePackageDependencies
-          DEVELOPMENT_TEAM='ZS99A4QXZW'
+#\\\         DEVELOPMENT_TEAM='ZS99A4QXZW'
 
       - name: Export ipa
         run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
