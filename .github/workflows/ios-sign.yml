@@ -1,4 +1,4 @@
-name: iOS-Sign-2
+name: iOS Step 2 - Sign (3)
 
 on:
   workflow_dispatch:
@@ -33,14 +33,14 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: android_build_production_release.yml
+          workflow: ios-build
           name: android-production-release.aab
           path: artifacts
 
       - name: Download Runner.app
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: ios_bitrice.yml
+          workflow: ios-build
           name: ios-release-production-no-codesign.app
 #          path: build/ios/iphoneos/
 
