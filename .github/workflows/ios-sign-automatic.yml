@@ -1,4 +1,4 @@
-name: iOS.2 - Sign Automatic (1)
+name: iOS.2 - Sign Automatic (2)
 
 on:
   workflow_dispatch:
