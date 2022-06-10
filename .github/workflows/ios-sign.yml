@@ -35,7 +35,7 @@ jobs:
         with:
           workflow: ios_bitrice.yml
           name: ios-release-production-no-codesign.app
-          path: build/ios/iphoneos/
+#          path: build/ios/iphoneos/
 
       - name: Build xArchive
         run: |
