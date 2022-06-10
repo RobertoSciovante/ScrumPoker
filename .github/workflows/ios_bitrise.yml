@@ -103,11 +103,11 @@ jobs:
 #\\\         DEVELOPMENT_TEAM='ZS99A4QXZW'
 
 
-      - name: Upload build-output/app.xcarchive
+      - name: Upload app.xcarchive
         uses: actions/upload-artifact@v1
         with:
           name: app.xcarchive
-          path: build-output/app.xcarchive
+          path: /Users/runner/work/ScrumPoker/ScrumPoker/build-output/app.xcarchive
 
 
       - name: Export ipa

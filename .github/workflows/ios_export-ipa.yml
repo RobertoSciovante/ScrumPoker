@@ -1,4 +1,4 @@
-name: iOS-Sign-2
+name: iOS-Bitrise - 002
 
 on:
   workflow_dispatch:
@@ -7,7 +7,18 @@ jobs:
   build_ios:
     runs-on: macos-latest
 
+
+
+
+
+
     steps:
+
+
+
+
+
+
       - name: Checkout the code
         uses: actions/checkout@v2
 
@@ -23,32 +34,24 @@ jobs:
           PROVISIONING_CERTIFICATE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_DISTRIBUTION_BASE64_APPLE }}
         run: |
           PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
-
           echo -n "$PROVISIONING_CERTIFICATE_BASE64" | base64 --decode --output $PP_PATH
-
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
 
-      - name: Download Runner.app
+
+      - name: Download app.xcarchive
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ios_bitrice.yml
-          name: ios-release-production-no-codesign.app
-          path: build/ios/iphoneos/
+          name: app.xcarchive
+          path: build-output
 
-      - name: Build xArchive
-        run: |
-          xcodebuild \
-          -workspace ios/Runner.xcworkspace \
-          -scheme Runner \
-          -configuration Release \
-          -archivePath build-output/app.xcarchive \
-          -resolvePackageDependencies
-      #\\\         DEVELOPMENT_TEAM='ZS99A4QXZW'
+      - name: Export ipa
+        run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
 
-      - name: Upload app.xcarchive
+      - name: Upload iOS Artefacts
         uses: actions/upload-artifact@v1
         with:
-          name: app.xcarchive
-          path: /Users/runner/work/ScrumPoker/ScrumPoker/build-output/app.xcarchive
+          name: ios-release-production
+          path: build-output/ios
