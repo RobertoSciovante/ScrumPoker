@@ -29,8 +29,6 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-
-
       - name: Download Runner.app
         uses: dawidd6/action-download-artifact@v2
         with:
@@ -41,15 +39,6 @@ jobs:
       - name: Build xArchive Manual
         run: |
           xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -sdk 'iphoneos' -destination 'generic/platform=iOS' -configuration Releas -archivePath build-output/app.xcarchive -resolvePackageDependencies clean archive PROVISIONING_PROFILE="fd964007-fc60-4afc-9b47-b98c3b81a7f9" CODE_SIGN_IDENTITY="Apple Development" DEVELOPMENT_TEAM=ZS99A4QXZW
-
-
-      - name: Build xArchive
-        run: |
-          xcodebuild \
-            -workspace ios/Runner.xcworkspace \
-            -scheme Runner
-            -configuration Release
-            -resolvePackageDependencies
 
       - name: Upload app.xcarchive
         uses: actions/upload-artifact@v1
