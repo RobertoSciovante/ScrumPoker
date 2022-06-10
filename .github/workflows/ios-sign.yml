@@ -1,4 +1,4 @@
-name: iOS Step 2 - Sign (5)
+name: iOS Step 2 - Sign (6)
 
 on:
   workflow_dispatch:
@@ -66,10 +66,13 @@ jobs:
       #            clean archive \
       #            CODE_SIGN_IDENTITY="Apple Development"
 
+
+#               -archivePath build-output/app.xcarchive \
+
       - name: Export ipa
         run: xcodebuild \
           -exportArchive \
-          -archivePath build-output/app.xcarchive \
+          -archivePath /Users/runner/work/ScrumPoker/ScrumPoker/build-output/app.xcarchive \
           -exportPath build-output/ios \
           -exportOptionsPlist \
           ios/ExportOptions.plist
