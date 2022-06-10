@@ -1,4 +1,4 @@
-name: iOS.2 - Sign Automatic (2)
+name: iOS.2 - Sign Automatic (3)
 
 on:
   workflow_dispatch:
@@ -56,8 +56,11 @@ jobs:
           -configuration Release \
           -archivePath './app.xcarchive' \
           -resolvePackageDependencies \
-          clean \
           archive
+#          clean archive
+
+#  xcodebuild -workspace 'MyWorkspace.xcworkspace' -scheme 'MyScheme' -configuration 'Release' -archivePath tmp.xcarchive archive
+#  xcodebuild -exportArchive -exportFormat IPA -archivePath tmp.xcarchive -exportPath app.ipa -exportWithOriginalSigningIdentity
 
       - name: List Folder
         run: ls -l
