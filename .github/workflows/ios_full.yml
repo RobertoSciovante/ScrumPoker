@@ -1,4 +1,4 @@
-name: iOS-Full - 005
+name: iOS-Full - 006
 
 on:
   workflow_dispatch:
@@ -81,6 +81,7 @@ jobs:
             -sdk 'iphoneos' \
             -destination 'generic/platform=iOS' \
             -archivePath build-output/app.xcarchive \
+            -allowProvisioningUpdates \
             clean archive \
 
       - name: Export ipa
