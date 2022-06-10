@@ -1,4 +1,4 @@
-name: iOS Step 1 - Build automatic (1)
+name: iOS.1 - Build automatic (1)
 
 on:
   workflow_dispatch:

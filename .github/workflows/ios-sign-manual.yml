@@ -1,4 +1,4 @@
-name: iOS Step 2 - Sign Manual (1)
+name: iOS.2 - Sign Manual (1)
 
 on:
   workflow_dispatch:
@@ -34,8 +34,8 @@ jobs:
       - name: Download Runner.app
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: ios-build.yml
-          name: ios-release-production-no-codesign.app
+          workflow: ios-build-manual.yml
+          name: ios-release-production-no-codesign-manual.app
           path: build/ios/iphoneos/
 
       - name: Build xArchive
