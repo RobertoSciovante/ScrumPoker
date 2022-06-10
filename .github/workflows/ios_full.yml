@@ -1,4 +1,4 @@
-name: iOS-Full - 004
+name: iOS-Full - 005
 
 on:
   workflow_dispatch:
@@ -71,6 +71,19 @@ jobs:
 #            -archivePath build-output/app.xcarchive \
 #            PROVISIONING_PROFILE='fd964007-fc60-4afc-9b47-b98c3b81a7f9' \
 #            clean archive \
+#            CODE_SIGN_IDENTITY="Apple Development"
+
+      - name: Build xArchive
+        run: |
+          xcodebuild \
+            -workspace ios/Runner.xcworkspace \
+            -scheme Runner \
+#            -configuration Release DEVELOPMENT_TEAM='ZS99A4QXZW' \
+            -sdk 'iphoneos' \
+            -destination 'generic/platform=iOS' \
+            -archivePath build-output/app.xcarchive \
+#            PROVISIONING_PROFILE='fd964007-fc60-4afc-9b47-b98c3b81a7f9' \
+            clean archive \
 #            CODE_SIGN_IDENTITY="Apple Development"
 
       - name: Export ipa
