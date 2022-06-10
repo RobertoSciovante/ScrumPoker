@@ -54,7 +54,7 @@ jobs:
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
           -configuration Release \
-          -archivePath 'app.xcarchive' \
+          -archivePath './app.xcarchive' \
           -resolvePackageDependencies \
           clean \
           archive
@@ -63,7 +63,7 @@ jobs:
         run: ls -l
 
       - name: Export ipa
-        run: xcodebuild -exportArchive -archivePath 'app.xcarchive' -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
+        run: xcodebuild -exportArchive -archivePath './app.xcarchive' -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
 
 #  - name: Build xArchive
 #    run: |
