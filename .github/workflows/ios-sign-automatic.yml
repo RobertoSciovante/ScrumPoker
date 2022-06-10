@@ -38,15 +38,15 @@ jobs:
           name: ios-release-production-no-codesign-automatic.app
           path: build/ios/iphoneos/
 
-      - name: Build xArchive
+      - name: Build xArchive Automatic
         run: |
           xcodebuild \
           -workspace ios/Runner.xcworkspace \
+          -scheme Runner \
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
-          -scheme Runner \
           -configuration Release \
-          -resolvePackageDependencies \
           -archivePath build-output/app.xcarchive \
+          -resolvePackageDependencies \
           clean \
           archive
