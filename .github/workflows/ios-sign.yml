@@ -1,4 +1,4 @@
-name: iOS Step 2 - Sign (3)
+name: iOS Step 2 - Sign (4)
 
 on:
   workflow_dispatch:
@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: app.xcarchive
-          path: /Users/runner/work/ScrumPoker/ScrumPoker/build-output/app.xcarchive
+          path: deploy/Runner.ipa
