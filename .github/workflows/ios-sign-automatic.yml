@@ -14,6 +14,12 @@ jobs:
       - name: Current folder
         run: pwd
 
+      - name: Create test file
+        run: echo hello_word >> test.txt
+
+      - name: List Folder
+        run: ls -l
+
       - name: Install Apple Certificate
         uses: apple-actions/import-codesign-certs@v1
         with:
@@ -48,13 +54,16 @@ jobs:
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
           -configuration Release \
-          -archivePath 'build-output/app.xcarchive' \
+          -archivePath 'app.xcarchive' \
           -resolvePackageDependencies \
           clean \
           archive
 
+      - name: List Folder
+        run: ls -l
+
       - name: Export ipa
-        run: xcodebuild -exportArchive -archivePath build-output/app.xcarchive -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
+        run: xcodebuild -exportArchive -archivePath 'app.xcarchive' -exportPath build-output/ios -exportOptionsPlist ios/ExportOptions.plist
 
 #  - name: Build xArchive
 #    run: |
