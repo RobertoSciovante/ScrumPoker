@@ -44,8 +44,8 @@ jobs:
           -workspace ios/Runner.xcworkspace \
           -scheme Runner \
           -configuration Release \
-#          -archivePath build-output/app.xcarchive \
           -resolvePackageDependencies
+      #          -archivePath build-output/app.xcarchive \
       #\\\         DEVELOPMENT_TEAM='ZS99A4QXZW'
 
       - name: Upload app.xcarchive
