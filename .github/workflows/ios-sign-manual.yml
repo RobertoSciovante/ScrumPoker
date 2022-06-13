@@ -41,7 +41,7 @@ jobs:
           xcodebuild \
           -workspace ios/Runner.xcworkspace \
           -scheme Runner \
-          -configuration Release \
+          -configuration Release-production \
           DEVELOPMENT_TEAM='ZS99A4QXZW' \
           -sdk 'iphoneos' \
           -destination 'generic/platform=iOS' \
