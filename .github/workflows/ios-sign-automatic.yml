@@ -1,4 +1,4 @@
-name: iOS.2 - Sign Automatic (4)
+name: iOS.2 - Sign Automatic (5)
 
 on:
   workflow_dispatch:
@@ -39,12 +39,12 @@ jobs:
 
 
 
-      - name: Download Runner.app
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: ios-build-automatic.yml
-          name: ios-release-production-no-codesign-automatic.app
-          path: build/ios/iphoneos/
+#      - name: Download Runner.app
+#        uses: dawidd6/action-download-artifact@v2
+#        with:
+#          workflow: ios-build-automatic.yml
+#          name: ios-release-production-no-codesign-automatic.app
+#          path: build/ios/iphoneos/
 
       - name: Build xArchive Automatic
         run: |
