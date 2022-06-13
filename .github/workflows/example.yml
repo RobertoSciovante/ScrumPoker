@@ -13,12 +13,5 @@ jobs:
 
       - name: List project
         run: |
-          xcodebuild -list -project ios/Runner.xcodeproj/project.pbxproj
+          xcodebuild -list -project ios/Runner.xcodeproj
 
-      - name: List project automatic
-        run: |
-          xcodebuild -list -project ios/Runner.xcodeproj/project_automatic.pbxproj
-
-      - name: List project manual
-        run: |
-          xcodebuild -list -project ios/Runner.xcodeproj/project_manual.pbxproj
