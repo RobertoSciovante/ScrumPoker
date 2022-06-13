@@ -50,6 +50,7 @@ jobs:
           clean archive \
           CODE_SIGN_IDENTITY="Apple Development"
 
+
 #      - name: Upload app.xcarchive
 #        uses: actions/upload-artifact@v1
 #        with:
