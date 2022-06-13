@@ -1,0 +1,24 @@
+name: iOS - Example xcodebuild (1)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_ios:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: List project
+        run: |
+          xcodebuild -list -project project.pbxproj
+
+      - name: List project automatic
+        run: |
+          xcodebuild -list -project project_automatic.pbxproj
+
+      - name: List project manual
+        run: |
+          xcodebuild -list -project project_manual.pbxproj

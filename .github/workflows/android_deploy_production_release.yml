@@ -13,7 +13,7 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: android_signing_production.yml
+          workflow: android_signing_production_release.yml
           name: android-production-release-signed.aab
           path: signed/
       - name: Publish to Play Store internal test track
