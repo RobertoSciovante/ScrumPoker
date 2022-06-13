@@ -29,12 +29,12 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-      - name: Download Runner.app
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: ios-build-manual.yml
-          name: ios-release-production-no-codesign-manual.app
-          path: build/ios/iphoneos/
+#      - name: Download Runner.app
+#        uses: dawidd6/action-download-artifact@v2
+#        with:
+#          workflow: ios-build-manual.yml
+#          name: ios-release-production-no-codesign-manual.app
+#          path: build/ios/iphoneos/
 
       - name: Build xArchive
         run: |
